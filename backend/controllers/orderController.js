@@ -20,22 +20,22 @@ const placeOrder = async (req, res) => {
 
     const line_items = req.body.items.map((item) => ({
       price_data: {
-        currency: "usd",
+        currency: "inr", // changed from usd to inr
         product_data: {
           name: item.name,
         },
-        unit_amount: item.price * 100,
+        unit_amount: item.price * 100, // assuming price is in INR
       },
       quantity: item.quantity,
     }));
 
     line_items.push({
       price_data: {
-        currency: "usd",
+        currency: "inr", // changed from usd to inr
         product_data: {
-          name: "Delivery Charges",
+          name: "GST",
         },
-        unit_amount: 2 * 100,
+        unit_amount: 2 * 100, // assuming delivery fee is in INR
       },
       quantity: 1,
     });

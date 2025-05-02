@@ -30,7 +30,7 @@ const Cart = () => {
         <br />
         <hr />
         {food_list.map((item, index) => {
-          if (cartItems[item._id] > 0) {
+          if (cartItems?.[item._id] > 0) {
             return (
               <div>
                 <div className="cart-items-title cart-items-item">
@@ -59,7 +59,7 @@ const Cart = () => {
             </div>
             <hr />
             <div className="cart-total-details">
-              <p>Delivery Fee</p>
+              <p>GST</p>
               <p>Rs.{getTotalCartAmount()===0?0:2}</p>
             </div>
             <hr />
