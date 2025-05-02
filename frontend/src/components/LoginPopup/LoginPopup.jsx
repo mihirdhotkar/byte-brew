@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./LoginPopup.css";
 import { assets } from "../../assets/frontend_assets/assets";
 import { StoreContext } from "../../context/StoreContext";
@@ -13,6 +13,17 @@ const LoginPopup = ({ setShowLogin }) => {
     email: "",
     password: "",
   });
+
+
+  // Disable body scroll when component is mounted
+  useEffect(() => {
+    document.body.classList.add("no-scroll");
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, []);
+
+
 
   const onChangeHandler = (event) => {
     const name = event.target.name;
